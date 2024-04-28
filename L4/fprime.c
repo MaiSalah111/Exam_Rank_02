@@ -35,15 +35,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	main(int ac, char **av)
+void	prime(int n)
 {
-	if (ac != 2)
-	{
-		printf("\n");
-		return (0);
-	}
-	int	n = atoi(av[1]);
-	int	factor = 2;
+	int	factor;
+
+	factor = 2;
 	if (n == 1)
 	{
 		printf("1");
@@ -55,55 +51,30 @@ int	main(int ac, char **av)
 			printf("%d", factor);
 			n = n / factor;
 			if (n > 1)
+			{
 				printf("*");
+			}
 		}
 		else
+		{
 			factor++;
+		}
 	}
-	printf("\n");
-	return (0);
 }
 
-// void	prime(int n)
-// {
-// 	int	factor;
+int	main(int argc, char **argv)
+{
+	int	n;
 
-// 	factor = 2;
-// 	if (n == 1)
-// 	{
-// 		printf("1");
-// 	}
-// 	while (n > 1)
-// 	{
-// 		if (n % factor == 0)
-// 		{
-// 			printf("%d", factor);
-// 			n = n / factor;
-// 			if (n > 1)
-// 			{
-// 				printf("*");
-// 			}
-// 		}
-// 		else
-// 		{
-// 			factor++;
-// 		}
-// 	}
-// }
-
-// int	main(int argc, char **argv)
-// {
-// 	int	n;
-
-// 	if (argc == 2)
-// 	{
-// 		n = atoi(argv[1]);
-// 		prime(n);
-// 		printf("\n");
-// 	}
-// 	else
-// 	{
-// 		printf("\n");
-// 	}
-// 	return (0);
-// }
+	if (argc == 2)
+	{
+		n = atoi(argv[1]);
+		prime(n);
+		printf("\n");
+	}
+	else
+	{
+		printf("\n");
+	}
+	return (0);
+}

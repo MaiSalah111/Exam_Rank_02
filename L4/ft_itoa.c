@@ -50,16 +50,6 @@ char	*ft_itoa(int nbr)
 	return (str);
 }
 
-#include<stdio.h>
-
-int	main(void)
-{
-	int	n;
-
-	n = 0;
-	printf("%s\n", ft_itoa(n));
-}
-
 // #include <stdlib.h>
 
 // static int	countdigt(int nbr)
@@ -105,3 +95,13 @@ int	main(void)
 // 		str[0] = '-';
 // 	return (str);
 // }
+
+#include<stdio.h>
+
+int	main(void)
+{
+	int	n;
+
+	n = -2124;
+	printf("%s\n", ft_itoa(n));
+}

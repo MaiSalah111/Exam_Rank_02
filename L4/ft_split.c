@@ -23,12 +23,12 @@ char	**ft_split(char *str)
 	char	**word_array;
 
 	str_i = 0;
-	word_array = malloc(sizeof(char) * 4096);
+	word_i = 0;
+	word_array = (char **)malloc(sizeof(**word_array) * 4096);
 	while (str[str_i] == ' ' || str[str_i] == '\t' || str[str_i] == '\n')
 	{
 		str_i++;
 	}
-	word_i = 0;
 	while (str[str_i] != '\0')
 	{
 		if (str[str_i] > 32)
@@ -52,4 +52,3 @@ char	**ft_split(char *str)
 	word_array[word_i] = (NULL);
 	return (word_array);
 }
-
