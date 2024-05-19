@@ -26,3 +26,9 @@ void	print_bits(unsigned char octet)
 		write (1, &bit, 1);
 	}
 }
+// int main(void)
+// {
+//     unsigned char binary = 2;
+//     print_bits(binary);
+//     return (0);
+// }

@@ -38,8 +38,8 @@ int	max(int *tab, unsigned int len)
 
 #include <stdio.h>
 
-int	main(void)
-{
-	int	tab[] = {10, 5, 7, 2};
-	printf("%d\n", max(tab, 4));
-}
+// int	main(void)
+// {
+// 	int	tab[] = {10, 5, 7, 2};
+// 	printf("%d\n", max(tab, 4));
+// }

@@ -12,33 +12,34 @@
 
 // int	ft_atoi(const char *str);
 
-#include <limits.h>
-
-int	ft_atoi(const char *str)
+int ft_atoi(char *str)
 {
-	int		sign;
-	long	result;
-
-	sign = 1;
-	result = 0;
-	while ((*str == 32) || ((*str >= 9 && *str <= 13)))
-		str++;
-	if (*str == '+' || *str == '-')
+	int i = 0;
+	int sign = 1;
+	int result = 0;
+	
+	while(str[i] <= 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str++ == '-')
+		if (str[i] == '-')
 			sign *= -1;
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while(str[i] >= '0' && str[i] <= '9')
 	{
-		if ((result > LONG_MAX / 10) || (result == LONG_MAX / 10
-				&& (*str - '0') > LONG_MAX % 10))
-		{
-			if (sign == 1)
-				return (-1);
-			else
-				return (0);
-		}
-		result = result * 10 + (*str++ - '0');
+		result = result * 10 + str[i] - '0';
+		i++;
 	}
-	return (sign * result);
+	return(result * sign);
 }
+
+// #include <stdio.h>
+// #include<stdlib.h>
+
+// int main(void)
+// {
+//     printf("%d\n", ft_atoi("-123abc"));
+// 	printf("%d\n", atoi("-123abc"));
+// 	return(0);
+// }
