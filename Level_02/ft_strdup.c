@@ -10,7 +10,7 @@
 // char    *ft_strdup(char *src);
 
 #include <stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
 
 int	ft_strlen(char *src)
 {
@@ -30,7 +30,7 @@ char	*ft_strdup(char *src)
 
 	i = 0;
 	len = ft_strlen(src);
-	dup = (char *)malloc(sizeof(char) * len + 1);
+	dup = (char *)malloc(sizeof(char) * (len + 1));
 	if (dup == NULL)
 		return (NULL);
 	while (src[i] != '\0')
@@ -42,33 +42,10 @@ char	*ft_strdup(char *src)
 	return (dup);
 }
 
-// char	*ft_strdup(char *src)
+
+// int	main(void)
 // {
-// 	int			i;
-// 	int			len;
-// 	char		*dup;
-
-// 	i = 0;
-// 	while (src[i])
-// 	{
-// 		i++;
-// 	}
-// 	len = i;
-// 	dup = (char *)malloc(sizeof(char) * len + 1);
-// 	if (!dup)
-// 		return (NULL);
-// 	i = 0;
-// 	while (src[i])
-// 	{
-// 		dup[i] = src[i];
-// 		i++;
-// 	}
-// 	dup[i] = '\0';
-// 	return (dup);
+// 	char	*str = "Mai";
+// 	printf("%s", ft_strdup(str));
+// 	return (0);
 // }
-
-int	main(void)
-{
-	char	str[] = "Mai";
-	printf("%s", ft_strdup(str));
-}
