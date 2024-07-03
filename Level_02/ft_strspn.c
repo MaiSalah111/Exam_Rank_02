@@ -85,15 +85,13 @@ size_t	ft_strspn(const char *s, const char *accept)
 // The function returns the number of characters in the initial segment of s that consist only of characters from accept.
 
 
+#include <stdio.h>
 
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	const char *s = "hello, world";
-// 	const char *accept = "hel";
-// 	size_t result = ft_strspn(s, accept);
-// 	printf("The initial segment of '%s' containing only characters from '%s' is %zu characters long.\n", s, accept, result);
-// 	return (0);
-// }
+int main(void)
+{
+	const char *s = "hello, world";
+	const char *accept = "hel";
+	size_t result = ft_strspn(s, accept);
+	printf("The initial segment of '%s' containing only characters from '%s' is %zu characters long.\n", s, accept, result);
+	return (0);
+}

@@ -65,19 +65,19 @@ char	*ft_strpbrk(const char *s1, const char *s2)
 // Testing the Function:
 
 
-// #include <stdio.h>
+#include <stdio.h>
 
-// int main(void)
-// {
-// 	const char *s1 = "hello, world";
-// 	const char *s2 = "ole";
-// 	char *result = ft_strpbrk(s1, s2);
+int main(void)
+{
+	const char *s1 = "hello, world";
+	const char *s2 = "ole";
+	char *result = ft_strpbrk(s1, s2);
 
-// 	if (result)
-// 		printf("The first occurrence in '%s' of any characters in '%s' is '%c' at position %ld.\n", s1, s2, *result, result - s1);
-// 	else
-// 		printf("No characters from '%s' found in '%s'.\n", s2, s1);
+	if (result)
+		printf("The first occurrence in '%s' of any characters in '%s' is '%c' at position %ld.\n", s1, s2, *result, result - s1);
+	else
+		printf("No characters from '%s' found in '%s'.\n", s2, s1);
 
-// 	return (0);
-// }
+	return (0);
+}
 

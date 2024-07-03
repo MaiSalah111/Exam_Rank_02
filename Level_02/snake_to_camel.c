@@ -19,6 +19,7 @@
 // helloWorld$
 // $>./camel_to_snake | cat -e
 // $
+
 #include <unistd.h>
 
 int	main(int ac, char **av)

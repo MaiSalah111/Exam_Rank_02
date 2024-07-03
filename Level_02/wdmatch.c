@@ -38,8 +38,7 @@ void    wdmatch(char *str1, char *str2)
             i++;
         j++;
     }
-    
-    if (!str1[i])
+    if (!str1[i]) 
         write(1, str1, i);
     write(1, "\n", 1);
 }
