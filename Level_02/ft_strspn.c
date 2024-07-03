@@ -46,71 +46,54 @@
 // STANDARDS
 //      The strspn() and strcspn() functions conform to ISO/IEC 9899:1990 (``ISO C90'').
 
-#include <stddef.h>
+#include <stdlib.h>
 
-size_t ft_strspn(const char *s, const char *accept)
+size_t	ft_strspn(const char *s, const char *accept)
 {
-    // Check for NULL pointers to avoid undefined behavior
-    if (!s || !accept)
-        return (0);
-
-    size_t i = 0;
-    // Iterate over each character in s using a while loop
-    while (s[i])
-    {
-        size_t j = 0;
-        int found = 0;
-        // For each character in s, check against all characters in accept
-        while (accept[j])
-        {
-            // If a match is found, set found flag and break out of the inner loop
-            if (s[i] == accept[j])
-            {
-                found = 1;
-                break;
-            }
-            j++;
-        }
-        // If no match is found, break out of the outer loop
-        if (!found)
-            break;
-        i++;
-    }
-    // Return the number of characters spanned
-    return(i);
+	size_t i = 0;
+	while (s[i])
+	{
+		size_t	j = 0;
+		while (accept[j])
+		{
+			if (s[i] == accept[j])
+				break;
+			j++;
+		}
+		if (accept[j] == '\0')
+			return (i);
+		i++;
+	}
+	return (i);
 }
 
-#include <stdio.h>
-#include <string.h> 
+// Explanation of the Code:
+// Initialize Index:
+// i is initialized to 0 and will be used to traverse the input string s.
 
-int main()
-{
-    const char *s1 = "abcdef";
-    const char *accept1 = "abc";
-    const char *s2 = "abcdef";
-    const char *accept2 = "xyz";
-    const char *s3 = "12345abc";
-    const char *accept3 = "1234567890";
-    const char *s4 = "123abc45";
-    const char *accept4 = "1234567890";
-    
-    // Test cases
-    size_t result1 = ft_strspn(s1, accept1);
-    size_t result2 = ft_strspn(s2, accept2);
-    size_t result3 = ft_strspn(s3, accept3);
-    size_t result4 = ft_strspn(s4, accept4);
-    
-    size_t expected1 = strspn(s1, accept1);
-    size_t expected2 = strspn(s2, accept2);
-    size_t expected3 = strspn(s3, accept3);
-    size_t expected4 = strspn(s4, accept4);
-    
-    // Print results
-    printf("Result 1: %zu, Expected: %zu\n", result1, expected1);
-    printf("Result 2: %zu, Expected: %zu\n", result2, expected2);
-    printf("Result 3: %zu, Expected: %zu\n", result3, expected3);
-    printf("Result 4: %zu, Expected: %zu\n", result4, expected4);
-    
-    return (0);
-}
+// Outer While Loop:
+// This loop continues as long as there are characters left in s to process (s[i]).
 
+// Inner While Loop:
+// This loop checks each character in accept to see if it matches the current character in s.
+// If a match is found (s[i] == accept[j]), the loop breaks.
+
+// Check for Match:
+// After the inner loop, if no match is found (i.e., accept[j] == '\0), it means the current character in s is not in accept, so we return the current index i.
+
+// Return Result:
+// The function returns the number of characters in the initial segment of s that consist only of characters from accept.
+
+
+
+
+// #include <stdio.h>
+
+// int main(void)
+// {
+// 	const char *s = "hello, world";
+// 	const char *accept = "hel";
+// 	size_t result = ft_strspn(s, accept);
+// 	printf("The initial segment of '%s' containing only characters from '%s' is %zu characters long.\n", s, accept, result);
+// 	return (0);
+// }

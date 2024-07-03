@@ -62,13 +62,30 @@ size_t	ft_strcspn(const char *s, const char *reject)
 	return (i);
 }
 
-// #include <stdio.h> 
-// #include <string.h>
+// Explanation of the Code:
 
-// int	main(void)
+// Outer Loop (over s):
+// The outer while loop iterates through each character in s using index i.
+
+// Inner Loop (over reject):
+// For each character in s, the inner while loop iterates through each character in reject using index j.
+// If s[i] matches reject[j], the function returns the current index i.
+
+// Return Index:
+// If a match is found, return the current index i.
+// If no match is found after checking all characters in s, return the length of s.
+
+
+// #include <stdio.h>
+
+// int main(void)
 // {
-//     printf("%lu\n", ft_strcspn("test", "es"));
-//     printf("%lu\n", strcspn("test", "es"));
-//     printf("%lu\n", ft_strcspn("test", "f"));
-//     printf("%lu\n", strcspn("test", "f"));
+// 	const char *s = "hello, world";
+// 	const char *reject = "aeiou";
+// 	size_t result = ft_strcspn(s, reject);
+
+// 	printf("The initial segment of '%s' containing none of the characters in '%s' is %zu characters long.\n", s, reject, result);
+
+// 	return (0);
 // }
+
