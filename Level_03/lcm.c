@@ -3,7 +3,7 @@
 // Allowed functions:
 // --------------------------------------------------------------------------------
 
-// Write a function who takes two unsigned int as parameters and returns the 
+// Write a function that takes two unsigned int as parameters and returns the 
 // computed LCM of those parameters.
 
 // LCM (Lowest Common Multiple) of two non-zero integers is the smallest postive
@@ -27,23 +27,25 @@
 
 //   unsigned int    lcm(unsigned int a, unsigned int b);
 
-unsigned int	lcm(unsigned int a, unsigned int b)
-{
-	unsigned int	n;
 
-	if (!a || !b)
-		return (0);
+unsigned int    lcm(unsigned int a, unsigned int b)
+{
+	unsigned int n;
+
+	if(!a || !b)
+		return(0);
 	if (a > b)
 		n = a;
-	else
+	else 
 		n = b;
-	while (1)
+	while(1)
 	{
-		if (n % a == 0 && n % b == 0)
-			return (n);
+		if(n % a == 0 && n % b == 0)
+			return(n);
 		n++;
 	}
 }
+
 
 // #include <stdio.h>
 
