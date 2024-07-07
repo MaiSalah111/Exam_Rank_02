@@ -14,29 +14,25 @@
 
 // If the array is empty, the function returns 0.
 
-int	max(int *tab, unsigned int len)
+int max(int* tab, unsigned int len)
 {
-	unsigned int	i;
-	int				max;
+    unsigned int  i = 0;
+    int max = tab [0];
 
-	if (len == 0)
-		return (0);
-	i = 0;
-	max = tab[0];
-	while (i < len)
-	{
-		if (tab[i] <= max)
-			i++;
-		else
-		{
-			max = tab[i];
-		}
-		i++;
-	}
-	return (max);
+    if (len == 0)
+       return (0);
+    while (i < len)
+    {
+        if (tab[i] > max)
+        {
+            max = tab[i];
+        }
+        i++;
+    }
+    return(max);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
 // int	main(void)
 // {

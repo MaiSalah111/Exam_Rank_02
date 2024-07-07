@@ -15,41 +15,74 @@
 
 #include <stdlib.h>
 
-char	**ft_split(char *str)
+char **ft_split(char *str)
 {
-	int		str_i;
-	int		word_i;
-	int		letter_i;
-	char	**word_array;
+	int i = 0;
+	int j = 0;
+	int k;
+	char **tab = (char **)malloc(sizeof(**tab) * 1000);
 
-	str_i = 0;
-	word_array = malloc(sizeof(char) * 4096);
-	while (str[str_i] == ' ' || str[str_i] == '\t' || str[str_i] == '\n')
+	while(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		i++;
+	while(str[i])
 	{
-		str_i++;
-	}
-	word_i = 0;
-	while (str[str_i] != '\0')
-	{
-		if (str[str_i] > 32)
+		if (str[i] > 32)
 		{
-			letter_i = 0;
-			word_array[word_i] = (char *)malloc(sizeof(char) * 4096);
-			while (str[str_i] > 32)
+			k = 0;
+			tab[j] = (char *)malloc(sizeof(char *) * 1000);
+			while(str[i] > 32)
 			{
-				word_array[word_i][letter_i] = str[str_i];
-				str_i++;
-				letter_i++;
+				tab[j][k] = str[i];
+				i++;
+				k++;
 			}
-			word_array[word_i][letter_i] = '\0';
-			word_i++;
+			tab[j][k] = '\0';
+			j++;
 		}
-		else
-		{
-			str_i++;
-		}
+		else 
+			i++;
 	}
-	word_array[word_i] = (NULL);
-	return (word_array);
+	tab[j] = 0;
+	return(tab);
 }
+
+// #include <stdlib.h>
+
+// char	**ft_split(char *str)
+// {
+// 	int		str_i;
+// 	int		word_i;
+// 	int		letter_i;
+// 	char	**word_array;
+
+// 	str_i = 0;
+// 	word_array = malloc(sizeof(char) * 4096);
+// 	while (str[str_i] == ' ' || str[str_i] == '\t' || str[str_i] == '\n')
+// 	{
+// 		str_i++;
+// 	}
+// 	word_i = 0;
+// 	while (str[str_i] != '\0')
+// 	{
+// 		if (str[str_i] > 32)
+// 		{
+// 			letter_i = 0;
+// 			word_array[word_i] = (char *)malloc(sizeof(char) * 4096);
+// 			while (str[str_i] > 32)
+// 			{
+// 				word_array[word_i][letter_i] = str[str_i];
+// 				str_i++;
+// 				letter_i++;
+// 			}
+// 			word_array[word_i][letter_i] = '\0';
+// 			word_i++;
+// 		}
+// 		else
+// 		{
+// 			str_i++;
+// 		}
+// 	}
+// 	word_array[word_i] = (NULL);
+// 	return (word_array);
+// }
 

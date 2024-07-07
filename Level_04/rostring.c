@@ -31,52 +31,131 @@
 // $>
 
 #include <unistd.h>
+#include <stdlib.h>
 
-int	is_space(char c)
+void ft_putstr(char *str)
 {
-	return (c == ' ' || c == '\t');
+    int i = 0;
+    while (str[i])
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
 }
 
-void	rostring(char *str)
+char **ft_split(char *str)
 {
-	int i = 0;
-	while (str[i] && is_space(str[i]))
-		i++;
-	int start = i;
-	int first_word_length = 0;
-	while (str[i] && !is_space(str[i]))
-	{
-		i++;
-		first_word_length++;
-	}
-	while (str[i] && is_space(str[i]))
-		i++;
-	int	printed = 0;
-	while (str[i])
-	{
-		if (!is_space(str[i]) && (printed == 0 || is_space(str[i - 1])))
-		{
-			if (printed)
-				write(1, " ", 1);
-			while (str[i] && !is_space(str[i]))
-			{
-				write(1, &str[i], 1);
-				i++;
-				printed = 1;
-			}
-		}
-		else
-			i++;
-	}
-	if (first_word_length > 0 && printed)
-		write(1, " ", 1);
-	write(1, str + start, first_word_length);
+    int i = 0;
+    int j = 0;
+    int k;
+    char **tab = (char **)malloc(sizeof(char *) * 1000);  // Changed sizeof(**tab) to sizeof(char *) to allocate memory correctly
+
+    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+        i++;
+    while (str[i])
+    {
+        if (str[i] > 32)
+        {
+            k = 0;
+            tab[j] = (char *)malloc(sizeof(char) * 1000);  // Changed sizeof(char *) to sizeof(char) to allocate memory correctly
+            while (str[i] > 32)
+            {
+                tab[j][k] = str[i];
+                i++;
+                k++;
+            }
+            tab[j][k] = '\0';
+            j++;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    tab[j] = 0;
+    return tab;
 }
 
-int	main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	if (argc > 1)
-		rostring(argv[1]);
-	write(1, "\n", 1);
-	return (0);
+    int i = 0;  // Initialize i to 0 to start from the first element
+    char **tab;
+
+    if (ac == 2)
+    {
+        tab = ft_split(av[1]);
+        while (tab[i])
+        {
+            ft_putstr(tab[i]);
+            if (tab[i + 1])  // Added condition to print a space only if there is another word
+                write(1, " ", 1);
+            i++;
+        }
+    }
+    write(1, "\n", 1);  // Added newline after printing all words
+    return 0;
 }
+
+// #include <unistd.h>
+// #include <stdlib.h>
+
+// void	ft_putstr(char *str)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		write (1, &str[i], 1);
+// 		i++;
+// 	}
+// }
+
+// char **ft_split(char *str)
+// {
+// 	int i = 0;
+// 	int j = 0;
+// 	int k;
+// 	char **tab = (char **)malloc(sizeof(**tab) * 1000);
+
+// 	while(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+// 		i++;
+// 	while(str[i])
+// 	{
+// 		if (str[i] > 32)
+// 		{
+// 			k = 0;
+// 			tab[j] = (char *)malloc(sizeof(char *) * 1000);
+// 			while(str[i] > 32)
+// 			{
+// 				tab[j][k] = str[i];
+// 				i++;
+// 				k++;
+// 			}
+// 			tab[j][k] = '\0';
+// 			j++;
+// 		}
+// 		else 
+// 			i++;
+// 	}
+// 	tab[j] = 0;
+// 	return(tab);
+// }
+
+// int main(int ac, char **av)
+// {
+// 	int i = 1;
+// 	char **tab;
+// 	if (ac == 2)
+// 	{
+// 		tab = ft_split(av[1]);
+// 		while(tab[i])
+// 		{
+// 			ft_putstr(tab[i]);
+// 			write(1, " ", 1);
+// 			i++;
+// 		}
+// 		ft_putstr(tab[0]);
+// 	}
+// 	write(1, "\n", 1);
+// }

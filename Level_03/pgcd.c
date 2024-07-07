@@ -31,11 +31,11 @@ int	main(int ac, char const **av)
 {
 	int	nbr1;
 	int	nbr2;
-
+	
 	if (ac == 3)
 	{
-        nbr1 = atoi(av[1]);
-	    nbr2 = atoi(av[2]);
+		nbr1 = atoi(av[1]);
+		nbr2 = atoi(av[2]);
 		if (nbr1 > 0 && nbr2 > 0)
 		{
 			while (nbr1 != nbr2)
