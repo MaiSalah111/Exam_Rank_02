@@ -38,7 +38,7 @@ char *ft_strrev(char *str)
 #include <stdio.h>
 int main(void)
 {
-    char str[] = "taha";
+    char str[] = "Mai";
     printf("%s\n",ft_strrev(str));
     return(0);
 }
