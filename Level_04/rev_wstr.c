@@ -86,7 +86,7 @@ int main(int ac, char **av)
 		i--;
 		while(i >= 0)
 		{
-			ft_putstr(words[i])
+			ft_putstr(words[i]);
 			if (i > 0)
 				write(1, " ", 1);
 			i--;

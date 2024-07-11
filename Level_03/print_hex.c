@@ -18,3 +18,87 @@
 // 4eae66$
 // $> ./print_hex | cat -e
 // $
+
+#include <unistd.h>
+
+void ft_atoi(char *str)
+{
+	int i = 0;
+
+	int result = 0;
+	while (str[i])
+	{
+		result = result * 10 + str[i++] - '0';
+	}
+	return (result);
+}
+
+void ft_print_hex(int nbr)
+{
+	hex[] = "0123456789abcdef";
+	if(nbr >= 16)
+	{
+		ft_print_hex(nbr / 16);
+	}
+	write(1, &hex[nbr % 16]);
+}
+
+int main (int ac, char **av). 
+{
+	if(ac == 2)
+	{
+		ft_print_hex(atoi(av[1]));
+	}
+	write (1, "\n", 1);
+	return (0);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #include <unistd.h>
+
+// int ft_atoi(char *str)
+// {
+// 	int result;
+
+// 	result = 0;
+// 	while (*str != '\0')
+// 		result = result * 10 + *str++ - '0';
+// 	return (result);
+// }
+
+// void print_hex(int nbr)
+// {
+// 	char hex[] = "0123456789abcdef";
+
+// 	if (nbr >= 16)
+// 		print_hex(nbr / 16);
+// 	write(1, &hex[nbr % 16], 1);
+// }
+
+// int	main(int argc, char **argv)
+// {
+
+// 	if (argc == 2)
+// 		print_hex(ft_atoi(argv[1]));
+// 	write(1, "\n", 1);
+// }

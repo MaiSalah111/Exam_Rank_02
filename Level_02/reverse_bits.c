@@ -19,6 +19,24 @@
 // 	 \/
 //  0110  0100
 
+
+// #include <stdio.h>
+
+// unsigned char reverse_bits(unsigned char octet)
+// {
+//     unsigned char reversed = 0;
+//     int i = 0;
+    
+//     while (i < 8)
+//     {
+//         reversed = (reversed << 1) | (octet & 1);
+//         octet >>= 1;
+//         i++;
+//     }
+    
+//     return reversed;
+// }
+
 unsigned char	reverse_bits(unsigned char octet)
 {
 	int				i = 8;
