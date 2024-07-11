@@ -18,3 +18,17 @@
 //     struct s_list *next;
 //     void          *data;
 // }                 t_list;
+
+#include "ft_list.h"
+
+int ft_list_size(t_list *begin_list)
+{
+	t_list *lst;
+	int count = 0;
+	while(lst)
+	{
+		lst = lst->next;
+		count++;
+	}
+	return(count);
+}
