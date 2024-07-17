@@ -50,22 +50,22 @@ int	*ft_range(int start, int end)
 	return (array);
 }
 
-int	main(void)
-{
-	int	start;
-	int	end;
-	int	size;
-	int	*array;
-	int	i;
+// int	main(void)
+// {
+// 	int	start;
+// 	int	end;
+// 	int	size;
+// 	int	*array;
+// 	int	i;
 
-	i = 0;
-	end = 11;
-	start = 4;
-	size = end - start + 1;
-	array = ft_range(start, end);
-	while (i < size)
-	{
-		printf("%d ,", array[i]);
-		i++;
-	}
-}
+// 	i = 0;
+// 	end = 11;
+// 	start = 4;
+// 	size = end - start + 1;
+// 	array = ft_range(start, end);
+// 	while (i < size)
+// 	{
+// 		printf("%d ,", array[i]);
+// 		i++;
+// 	}
+// }

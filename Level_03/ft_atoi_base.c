@@ -18,3 +18,30 @@
 // Your function must be declared as follows:
 
 // int	ft_atoi_base(const char *str, int str_base);
+
+int ft_atoi_base(const char *str, int str_base)
+{
+	int i = 0;
+	int result = 0;
+	int sign = 1;
+
+	if (str[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+    else if (str[0] == '+')
+        i++;
+	while (((str[i] >= '0' && str[i] <= '9') && (str_base <= 16)) || ((str[i] >= 'a' && str[i] <= 'f') || (str[i] >= 'A' && str[i] <= 'F')))
+	{
+		result *= str_base;
+		if(str[i] >= '0' && str[i] <= '9')
+			result += str[i] - '0';
+		else if (str[i] >= 'A' && str[i] <= 'F')
+			result += str[i] - 'A' + 10;
+		else if (str[i] >= 'a' && str[i] <= 'f')
+			result += str[i] - 'a' + 10;
+		i++;
+	}
+	return(result * sign);
+}

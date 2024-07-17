@@ -26,31 +26,40 @@
 
 #include <unistd.h>
 
-void last_word(char *str)
+void ft_last_word(char *str)
 {
-	int i = 0;
-	while(str[i])
-		i++;
-	i--;
-	while(str[i] == '\t' || str[i] == ' ')
-		i--;
-	while(i >= 0)
-	{
-		if (str[i] == '\t' || str[i] == ' ')
-			break;
-		i--;
-	}
-	i++;
-	while(str[i] && str[i] != ' ' && str[i] != '\t')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+    int i = 0;
+    while(str[i])
+    {
+        i++;
+    }
+    i--;
+    while(str[i] == ' ' || str[i] == '\t')
+    {
+        i--;
+    }
+    while(i >= 0)
+    {
+        if (str[i] == ' ' || str[i] == '\t')
+        {
+            break ;
+        }
+        i--;
+    }
+    i++;
+    while(str[i] && (str[i] != ' ' && str[i] != '\t'))
+    {
+        write (1, &str[i], 1);
+        i++;
+    }
+
 }
 
-// int main(int ac, char **av)
-// {
-// 	if (ac == 2)
-// 		last_word(av[1]);
-// 	write(1, "\n", 1);
-// }
+int main(int ac, char **av)
+{
+    if (ac == 2)
+    {
+       ft_last_word(av[1]);
+    }
+    write (1, "\n", 1);
+}

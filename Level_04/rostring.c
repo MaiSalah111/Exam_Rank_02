@@ -30,63 +30,62 @@
 // $
 // $>
 
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void ft_putstr(char *str)
 {
     int i = 0;
-    while (str[i])
+    while(str[i])
     {
-        write(1, &str[i], 1);
-        i++;
+        write (1, &str[i++], 1);
     }
 }
 
 char **ft_split(char *str)
 {
-	int i = 0;
+    int i = 0;
     int j = 0;
-	char **tab = (char **)malloc(sizeof(**tab) * 1000);
-
-	while(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-		i++;
-	while(str[i])
-	{
-		if (str[i] > 32)
-		{
-            int k = 0;
-			tab[j] = (char *)malloc(sizeof(char *) * 1000);
-			while(str[i] > 32)
-			{
-				tab[j][k] = str[i];
-				i++;
-				k++;
-			}
-			tab[j][k] = '\0';
-			j++;
-		}
-		else 
-			i++;
-	}
-	tab[j] = 0;
-	return(tab);
+    int k;
+    char **tab = (char **)malloc(sizeof(**tab) * 1000);
+    while(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+        i++;
+    while (str[i])
+    {
+        if(str[i] > 32)
+        {
+            k = 0;
+            tab[j] = (char *)malloc(sizeof(char *) * 1000);
+            while(str[i] > 32)
+            {
+                tab[j][k] = str[i];
+                i++;
+                k++;
+            }
+            tab[j][k] = '\0';
+            j++;
+        }
+        else
+            i++;
+    }
+    tab [j] = 0;
+    return(tab);
 }
 
-int main(int ac, char **av)
+int main (int ac, char **av)
 {
-	int i = 1;
-	char **tab;
-	if (ac >= 2)
-	{
-		tab = ft_split(av[1]);
-		while(tab[i])
-		{
-			ft_putstr(tab[i]);
-			write(1, " ", 1);
-			i++;
-		}
-		ft_putstr(tab[0]);
-	}
-	write(1, "\n", 1);
+    int i = 1;
+    char **tab;
+    if(ac >= 2)
+    {
+        tab = ft_split(av[1]);
+        while(tab[i])
+        {
+            ft_putstr(tab[i]);
+            write(1, " ", 1);
+            i++;
+        }
+        ft_putstr(tab[0]); 
+    }
+    write (1, "\n", 1);
 }

@@ -54,18 +54,18 @@ int	*ft_rrange(int start, int end)
 
 int	main(void)
 {
-	int	start;
-	int	end;
-	int	size;
+	// int	start;
+	// int	end;
+	// int	size;
 	int	*array;
 	int	i;
 
 	i = 0;
-	end = 11;
-	start = 4;
-	size = end - start + 1;
-	array = ft_rrange(start, end);
-	while (i < size)
+	// end = 1;
+	// start = 3;
+	// size = end - start + 1;
+	array = ft_rrange(3, 1);
+	while (array[i])
 	{
 		printf("%d ,", array[i]);
 		i++;
