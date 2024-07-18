@@ -56,7 +56,6 @@ void	put_nbr(int n)
 	}
 	char digit = n % 10 + '0';
 	write(1, &digit, 1);
-		// write(1, &(int){ '0' + n % 10}, 1);
 }
 
 
@@ -73,12 +72,11 @@ int add_prime_sum(int n)
 	return (sum);
 }
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	int i;
-	if(ac == 2 && (i = add_prime_sum(ft_atoi(av[1]))))
-		put_nbr(i);
-	else
+	if (ac == 2)
+		put_nbr(add_prime_sum(ft_atoi(av[1])));
+	else	
 		put_nbr(0);
 	write(1, "\n", 1);
 }
