@@ -19,16 +19,16 @@
 //     void          *data;
 // }                 t_list;
 
-#include "ft_list.h"
-
-int ft_list_size(t_list *begin_list)
+int    ft_list_size(t_list *begin_list)
 {
-	t_list *lst;
-	int count = 0;
-	while(lst)
-	{
-		lst = lst->next;
-		count++;
-	}
-	return(count);
+    int i = 0;
+    t_list *lst;
+	
+	lst = begin_list;
+    while(lst)
+    {
+        lst = lst -> next;
+        i++;
+    }
+    return(i);
 }
