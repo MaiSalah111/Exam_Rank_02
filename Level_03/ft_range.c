@@ -32,7 +32,7 @@ int	*ft_range(int start, int end)
 		size = end - start + 1;
 	else
 		size = start - end + 1;
-	array = (int *)malloc(size * sizeof(16));
+	array = (int *)malloc(size * sizeof(int));
 	if (array)
 		return (0);
 	while (i < size)

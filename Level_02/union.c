@@ -28,53 +28,103 @@
 
 #include <unistd.h>
 
-int	seen_before(char *str, char c, int pos)
+int ft_doubles(char *str, char c, int pos)
 {
-	int	i;
-
-	i = 0;
-	while (i < pos)
-	{
-		if (str[i] == c)
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
+    int i = 0;
+    while (i < pos)
+    {
+        if (str[i] == c)
+        {
+            return (0);
+        }
+        i++;
+    }
+    return (1);
 }
 
-void	ft_union(char *str1, char *str2)
+void ft_union(char *s1, char *s2)
 {
-	int	i;
-	int	j;
+    int i, j;
 
-	i = 0;
-	while (str1[i])
-	{
-		if (seen_before(str1, str1[i], i) == 1)
-		{
-			write (1, &str1[i], 1);
-		}
-		i++;
-	}
-	j = 0;
-	while (str2[j])
-	{
-		if (seen_before(str1, str2[j], i) && seen_before(str2, str2[j], j))
-		{
-			write (1, &str2[j], 1);
-		}
-		j++;
-	}
+    i = 0;
+    while (s1[i])
+    {
+        if ((ft_doubles(s1, s1[i], i)) == 1)
+        {
+            write(1, &s1[i], 1);
+        }
+        i++;
+    }
+    j = 0;
+    while (s2[j])
+    {
+        if (ft_doubles(s1, s2[j], i) && ft_doubles(s2, s2[j], j))
+        {
+            write(1, &s2[j], 1);
+        }
+        j++;
+    }
 }
 
-int	main(int ac, char **av)
+int main (int ac, char **av)
 {
-	if (ac == 3)
-	{
-		ft_union(av[1], av[2]);
-	}
-	write (1, "\n", 1);
-	return (0);
+    if (ac == 3)
+    {
+        ft_union(av[1], av[2]);
+    }
+    write (1, "\n", 1);
+    return(0);
 }
+
+// #include <unistd.h>
+
+// int	seen_before(char *str, char c, int pos)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (i < pos)
+// 	{
+// 		if (str[i] == c)
+// 		{
+// 			return (0);
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
+
+// void	ft_union(char *str1, char *str2)
+// {
+// 	int	i;
+// 	int	j;
+
+// 	i = 0;
+// 	while (str1[i])
+// 	{
+// 		if (seen_before(str1, str1[i], i) == 1)
+// 		{
+// 			write (1, &str1[i], 1);
+// 		}
+// 		i++;
+// 	}
+// 	j = 0;
+// 	while (str2[j])
+// 	{
+// 		if (seen_before(str1, str2[j], i) && seen_before(str2, str2[j], j))
+// 		{
+// 			write (1, &str2[j], 1);
+// 		}
+// 		j++;
+// 	}
+// }
+
+// int	main(int ac, char **av)
+// {
+// 	if (ac == 3)
+// 	{
+// 		ft_union(av[1], av[2]);
+// 	}
+// 	write (1, "\n", 1);
+// 	return (0);
+// }

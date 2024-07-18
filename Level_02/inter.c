@@ -24,41 +24,40 @@
 
 #include <unistd.h>
 
-int check_doubles(char *str, char c, int pos)
+int ft_doubles (char *str, char c, int pos)
 {
     int i = 0;
-    while(i < pos)
+    while (i < pos)
     {
-        if (str[i] == c)
+        if(str[i] == c)
         {
-            return (0);
+            return(0);
         }
         i++;
     }
     return (1);
 }
 
-void inter(char *str1, char *str2)
+void ft_inter(char *s1, char *s2)
 {
     int i;
     int j;
-
+    
     i = 0;
-    while (str1[i])
+    while(s1[i])
     {
         j = 0;
-        while (str2[j])
+        while(s2[j])
         {
-            if (str1[i] == str2[j])
+            if (s1[i] == s2[j])
             {
-                if(check_doubles(str1, str1[i], i) == 1)
+                if (ft_doubles(s1, s1[i], i) == 1)
                 {
-                    write (1, &str1[i], 1);
+                    write(1, &s1[i], 1);
                     break ;
                 }
             }
             j++;
-            
         }
         i++;
     }
@@ -66,10 +65,63 @@ void inter(char *str1, char *str2)
 
 int main (int ac, char **av)
 {
-    if (ac == 3)
+    if (ac ==3)
     {
-        inter(av[1], av[2]);
+        ft_inter(av[1], av[2]);
     }
-    write (1, "\n", 1);
-    return(0);
+    write(1, "\n", 1);
+    return (0);
 }
+
+
+// #include <unistd.h>
+
+// int check_doubles(char *str, char c, int pos)
+// {
+//     int i = 0;
+//     while(i < pos)
+//     {
+//         if (str[i] == c)
+//         {
+//             return (0);
+//         }
+//         i++;
+//     }
+//     return (1);
+// }
+
+// void inter(char *str1, char *str2)
+// {
+//     int i;
+//     int j;
+
+//     i = 0;
+//     while (str1[i])
+//     {
+//         j = 0;
+//         while (str2[j])
+//         {
+//             if (str1[i] == str2[j])
+//             {
+//                 if(check_doubles(str1, str1[i], i) == 1)
+//                 {
+//                     write (1, &str1[i], 1);
+//                     break ;
+//                 }
+//             }
+//             j++;
+            
+//         }
+//         i++;
+//     }
+// }
+
+// int main (int ac, char **av)
+// {
+//     if (ac == 3)
+//     {
+//         inter(av[1], av[2]);
+//     }
+//     write (1, "\n", 1);
+//     return(0);
+// }
