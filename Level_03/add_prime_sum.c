@@ -23,20 +23,6 @@
 
 #include <unistd.h>
 
-int	is_prime(int n)
-{
-	if (n <= 1)
-		return (0);
-	int i = 2;
-	while (i < n)
-	{
-		if (n % i == 0)
-			return(0);
-		i++;
-	}
-	return (1);
-}
-
 int	ft_atoi(char *str)
 {
 	int	res = 0;
@@ -58,6 +44,19 @@ void	put_nbr(int n)
 	write(1, &digit, 1);
 }
 
+int	is_prime(int n)
+{
+	if (n <= 1)
+		return (0);
+	int i = 2;
+	while (i < n)
+	{
+		if (n % i == 0)
+			return(0);
+		i++;
+	}
+	return (1);
+}
 
 int add_prime_sum(int n)
 {
